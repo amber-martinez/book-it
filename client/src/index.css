@@ -2,3 +2,8 @@
   font-family: 'Source Sans Pro', sans-serif;
   color: #4f564e;
 }
+
+#inlineLink {
+  color: #7e857d;
+  text-decoration: none;
+}

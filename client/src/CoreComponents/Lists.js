@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Lists({ user, userErrors }) {
+function Lists({ user }) {
 
     return (
         <div style={{ marginLeft: 215, marginTop: 45 }}>
             {user ?
             <h3 style={{ fontSize: 18 }}>Lists</h3>
-            : userErrors ? userErrors.map(e => <p>{e}</p>) : null
+            : <p>Sign in <Link id='inlineLink'>here.</Link></p>
             }
         </div>
     )
