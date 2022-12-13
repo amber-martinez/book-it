@@ -4,7 +4,23 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavBar() {
+function NavBar({ user, setUser }) {
+
+  function onLogoutClick(e) {
+    e.preventDefault();
+
+    fetch('/api/signout', {
+      method: 'DELETE'
+    })
+    .then(r => {
+      if (r.ok) {
+        setUser(null)
+        window.location.href = '/'
+      }
+    })
+
+  }
+
     return (
     <Navbar collapseOnSelect expand="lg" id='navbar' style={{ backgroundColor: '#eef0f2', color: '#4f564e' }}>
       <Container style={{ fontSize: 13 }}>
@@ -20,7 +36,11 @@ function NavBar() {
                 <NavDropdown.Item href="/lists">Lists</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.1">Themes</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="signin">Sign In</NavDropdown.Item>
+                {user ? 
+                <NavDropdown.Item onClick={onLogoutClick}>Sign out</NavDropdown.Item>
+                :
+                <NavDropdown.Item href="signin">Sign in</NavDropdown.Item>
+                }
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

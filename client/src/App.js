@@ -25,11 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} setUser={setUser}/>
       <Router>
         <Routes>
           <Route exact path='/lists' element={<Lists user={user} />}></Route>
-          <Route exact path='/signin' element={<SignIn user={user}/>}></Route>
+          <Route exact path='/signin' element={<SignIn user={user} setUser={setUser}/>}></Route>
           <Route exact path='/signup' element={<SignUp user={user} setUser={setUser}/>}></Route>
         </Routes>
       </Router>

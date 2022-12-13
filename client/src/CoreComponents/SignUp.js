@@ -29,7 +29,7 @@ function SignUp({ user, setUser }) {
         })
         .then(r => {
             if (r.ok) {
-                r.json().then(setUser(user))
+                r.json().then(data => setUser(data))
                 window.location.href='/account'
             } else {
                 r.json().then(e => setErrors(e.errors))
