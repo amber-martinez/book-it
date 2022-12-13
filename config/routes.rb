@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :themes
     resources :lists
     resources :bookmarks
+    get '/account', to: 'sessions#create'
   end
 
   # Routing logic: fallback requests for React Router.

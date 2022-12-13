@@ -1,4 +1,3 @@
-import { ErrorResponse } from '@remix-run/router';
 import React from 'react'
 
 function Lists({ user, userErrors }) {

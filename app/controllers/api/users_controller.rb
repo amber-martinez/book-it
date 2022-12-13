@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    skip_before_action :create
+    skip_before_action :authorize, :create
 
     def show
         render json: @user
