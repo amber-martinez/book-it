@@ -49,17 +49,22 @@ function SignUp({ user, setUser }) {
                 <p style={{ fontSize: 13, marginTop: -1, color: '#838383' }}>Before you book it, tell us who you are.</p>
                 <Form onSubmit={onSignUpSubmit}>
                     <Row style={{ display: 'inline-block' }}>
-                        <Col style={{ marginRight: 10, marginBottom: 10 }}>
+                        <Col style={{ marginRight: 10, marginBottom: 5 }}>
                             <Form.Control type='text' placeholder="Name" value={name} onChange={((e) => setName(e.target.value))} style={{ marginTop: 4, width: 220, padding: 8, fontSize: 13 }}/>
                         </Col>
+                    </Row>
+                    <Row style={{ display: 'inline-block' }}>
+                        <Col style={{ marginRight: 10, marginBottom: 5 }}>
+                            <Form.Control type='text' placeholder="Username" value={username} onChange={((e) => setUsername(e.target.value))} style={{ marginTop: 4, width: 220, padding: 8, fontSize: 13 }}/>
+                        </Col>
+                    </Row>
+                    <br></br>
+                    <Row style={{ display: 'inline-block' }}>
                         <Col style={{ marginRight: 10, marginBottom: 10 }}>
                             <Form.Control type='password' placeholder="Password" value={password} onChange={((e) => setPassword(e.target.value))} style={{ marginTop: 4, width: 220, padding: 8, fontSize: 13 }}/>
                         </Col>
                     </Row>
                     <Row style={{ display: 'inline-block' }}>
-                        <Col style={{ marginRight: 10, marginBottom: 10 }}>
-                            <Form.Control type='text' placeholder="Username" value={username} onChange={((e) => setUsername(e.target.value))} style={{ marginTop: 4, width: 220, padding: 8, fontSize: 13 }}/>
-                        </Col>
                         <Col style={{ marginRight: 10, marginBottom: 10 }}>
                             <Form.Control type='password' placeholder="Confirm password" value={passwordConfirmation} onChange={((e) => setPasswordConfirmation(e.target.value))} style={{ marginTop: 4, width: 220, padding: 8, fontSize: 13 }}/>
                         </Col>
