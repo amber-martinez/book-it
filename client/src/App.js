@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react';
+import NavBar from './CoreElements/NavBar';
+import Lists from './CoreElements/Lists';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
+
+  const [user, setUser] = useState(null);
+  const [userErrors, setUserErrors] = useState([]);
+
+  useEffect(() => {
+
+    fetch('/api/account')
+    .then(r => {
+      if (r.ok) {
+        r.json().then(data => setUser(data))
+      } else {
+        r.json().then(e => setUserErrors(e.errors))
+      }
+    })
+
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Router>
+        <Routes>
+          <Route exact path='/lists' element={<Lists user={user} userErrors={userErrors}/>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
