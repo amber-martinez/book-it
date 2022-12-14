@@ -19,9 +19,9 @@ function OffCanvasMenu({ list, name, ...props }) {
   const toggleShow = () => setShow((s) => !s);
 
   return (
-    <div style={{ height: 20 }}>
+    <div style={{ }}>
       <Button style={{ backgroundColor: 'transparent', border: 'none' }} onClick={toggleShow} className="me-2">
-        <img src='https://i.imgur.com/RRaDGiY.png' style={{ height: 18 }} ></img>
+        <img src='https://i.imgur.com/RRaDGiY.png' style={{ height: 20, marginRight: -501, marginTop: 8 }}></img>
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
