@@ -10,7 +10,7 @@ function Lists({ user }) {
             <div>
                 <h3 style={{ fontSize: 20, marginBottom: 8 }}>Lists</h3>
                 <button  style={{ backgroundColor: '#4f564e', border: 'none', padding: '3px 11px 3px 11px', color: 'white', fontSize: 11, borderRadius: 4, marginRight: 10 }}><Link to='/new-list' style={{ color: 'white', textDecoration: 'none' }}>+ New list</Link></button>
-                <button style={{ backgroundColor: '#7e857d', border: 'none', padding: '3px 11px 3px 11px', color: 'white', fontSize: 11, borderRadius: 4, marginRight: 10 }}>+ New bookmark</button>
+                <button style={{ backgroundColor: '#7e857d', border: 'none', padding: '3px 11px 3px 11px', color: 'white', fontSize: 11, borderRadius: 4, marginRight: 10 }}>+ New theme</button>
                 <div style={{ marginTop: 20 }}>
                     { user.lists.length > 0 ?
                     user.lists.map(list => <List list={list}/>)

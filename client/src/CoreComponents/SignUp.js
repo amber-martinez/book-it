@@ -37,9 +37,6 @@ function SignUp({ user, setUser }) {
         })
     }
 
-    console.log(`username: ${username}`)
-    console.log(`password: ${password}`)
-
     return (
         <div style={{ marginTop: 65, textAlign: 'center' }}>
             {user ?
@@ -84,7 +81,6 @@ function SignUp({ user, setUser }) {
             }
         </div>
     )
-
 }
 
 export default SignUp;
