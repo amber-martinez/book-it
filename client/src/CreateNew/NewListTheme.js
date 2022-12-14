@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import EditTheme from '../EditElements/EditTheme';
+import ThemeCarousel from './ThemeCarousel';
 
 function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIcon, setBulletIcon }) {
 
@@ -34,7 +34,11 @@ function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIc
 
     return (
         <div style={{ display: 'inline-block'}}>
-            <h6 style={{ fontSize: 17, textAlign: 'left' }}>Theme</h6>
+            <h6 style={{ fontSize: 17, textAlign: 'left' }}>Themes</h6>
+            <div style={{ marginBottom: 55 }}>
+                <ThemeCarousel />
+            </div>
+            <h6 style={{ fontSize: 17, textAlign: 'left' }}>Create new theme</h6>
             <Row style={{ marginBottom: 5, textAlign: 'left', marginTop: 17, fontSize: 13 }}>
                 <Col>
                     <p>Primary color</p>
