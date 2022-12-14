@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from 'react';
 import EditTitle from './EditTitle';
+import DeleteList from './DeleteList';
 
 function EditSettings({ list, title, setTitle }) {
 
@@ -9,11 +8,7 @@ function EditSettings({ list, title, setTitle }) {
         <div>
             <h3 style={{ fontSize: 17, marginBottom: 18, marginTop: 10 }}>Settings</h3>
             <EditTitle list={list} title={title} setTitle={setTitle}/>
-            <Row style={{ marginBottom: 5 }}>
-                <Col>
-                    <p>Delete list</p>
-                </Col>
-            </Row>
+            <DeleteList list={list}/>
         </div>
     )
 }
