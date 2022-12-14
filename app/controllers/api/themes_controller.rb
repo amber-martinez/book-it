@@ -15,7 +15,7 @@ class Api::ThemesController < ApplicationController
         render json: theme, status: :created
     end
 
-    def updated
+    def update
         theme = Theme.find(params[:id])
         theme.update!(theme_params)
         render json: theme

@@ -4,8 +4,6 @@ import List from '../CreateNew/List';
 
 function Lists({ user }) {
 
-    console.log(user)
-
     return (
         <div style={{ marginLeft: 215, marginTop: 45, textAlign: 'left' }}>
             {user ?

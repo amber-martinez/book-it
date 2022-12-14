@@ -4,8 +4,6 @@ import Example from '../EditElements/OffCanvasMenu';
 
 function List({ list }) {
 
-    console.log(list.bookmarks)
-
     return (
         <div style={{ display: 'inline-block', marginRight: 30 }}>
             <Card style={{ width: '18rem', margin: 'auto', textAlign: 'left', marginTop: 20, backgroundColor: list.theme.prim_color, color: list.theme.sec_color, border: 'none' }}>
@@ -18,7 +16,7 @@ function List({ list }) {
                         {list.bookmarks.length > 0 ?
                         list.bookmarks.map(bm => (
                             <div>
-                            <Card.Link href={bm.link} style={{ textDecoration: 'none', fontSize: 13, color: list.theme.sec_color }}>{list.theme.bullet_icon} {bm.name}</Card.Link>
+                            <Card.Link href={bm.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', fontSize: 13, color: list.theme.sec_color }}>{list.theme.bullet_icon} {bm.name}</Card.Link>
                             </div>
                         ))
                         : null
