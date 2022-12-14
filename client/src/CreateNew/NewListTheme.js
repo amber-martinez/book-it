@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ThemeCarousel from './ThemeCarousel';
+import ThemeBrowse from './ThemeBrowse';
 
-function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIcon, setBulletIcon }) {
+function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIcon, setBulletIcon, setThemeID }) {
 
     const [successMessage, setSuccessMessage] = useState(false);
     const [errors, setErrors] = useState([]);
@@ -36,7 +36,7 @@ function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIc
         <div style={{ display: 'inline-block'}}>
             <h6 style={{ fontSize: 17, textAlign: 'left' }}>Themes</h6>
             <div style={{ marginBottom: 55 }}>
-                <ThemeCarousel />
+                <ThemeBrowse setThemeID={setThemeID}/>
             </div>
             <h6 style={{ fontSize: 17, textAlign: 'left' }}>Create new theme</h6>
             <Row style={{ marginBottom: 5, textAlign: 'left', marginTop: 17, fontSize: 13 }}>
@@ -63,7 +63,7 @@ function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIc
                     <input onChange={((e) => setBulletIcon(e.target.value))} type='text' value={bulletIcon} style={{ width: 48, border: 'none', borderBottom: '.8px solid #4f564e', fontSize: 13, textAlign: 'center', color: '#4f564e' }}></input>
                 </Col>
                 <div style={{ textAlign: 'left', marginTop: 10 }}>
-                    <button  onClick={onThemeSave} style={{ backgroundColor: '#7e857d', border: 'solid 1px #7e857d', borderColor: '#657065d9', textAlign: 'center', fontSize: 12, marginTop: 10, display: 'inline-block', borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Save edits</button>
+                    <button  onClick={onThemeSave} style={{ backgroundColor: '#7e857d', border: 'solid 1px #7e857d', borderColor: '#657065d9', textAlign: 'center', fontSize: 12, marginTop: 10, display: 'inline-block', borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Save theme</button>
                 </div>
                 <div style={{ marginTop: 15 }}>
                     {errors ? errors.map(e => <p style={{ marginBottom: 3 }}>{e}</p>) : null}

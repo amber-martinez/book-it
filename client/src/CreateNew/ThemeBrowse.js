@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 
-function ThemeCarousel() {
+function ThemeBrowse({ setThemeID }) {
 
     const [themes, setThemes] = useState([])
 
@@ -27,7 +27,7 @@ function ThemeCarousel() {
                     </Card.Body>
                 </Card>
                 <div style={{ textAlign: 'left' }}>
-                    <button style={{ backgroundColor: 'transparent', border: 'none', textAlign: 'center', fontSize: 12, marginTop: 1, display: 'inline-block', borderRadius: 3, color: '#4f564e', padding: '2px 10px 3px 10px' }}>Select</button>
+                    <button onClick={((e) => setThemeID(e.target.value))} value={theme.id} style={{ backgroundColor: 'transparent', border: 'none', textAlign: 'center', fontSize: 12, marginTop: 1, display: 'inline-block', borderRadius: 3, color: '#4f564e', padding: '2px 10px 3px 10px' }}>Select</button>
                 </div>
             </div>
         ))}
@@ -35,4 +35,4 @@ function ThemeCarousel() {
   );
 }
 
-export default ThemeCarousel;
+export default ThemeBrowse;
