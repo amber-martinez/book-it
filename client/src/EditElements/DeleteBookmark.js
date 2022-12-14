@@ -28,7 +28,7 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
 
     return (
         <div>
-            <Row style={{ marginBottom: 5, marginTop: 10 }}>
+            <Row style={{ marginBottom: 5  }}>
                 <Col>
                     <button onClick={(() => setShowDeleteBM(!showDeleteBM))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0, color: '#4f564e' }}>Delete bookmark</button>
                 </Col>

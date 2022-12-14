@@ -45,7 +45,7 @@ function EditOptions({ list }) {
             <br></br>
             <Bookmarks list={list} setName={setName} name={name} setLink={setLink} link={link} bookmarks={bookmarks} setBookmarks={setBookmarks}/>
             <br></br>
-            <EditSettings list={list} setTitle={setTitle} title={title} />
+            <EditSettings list={list} setTitle={setTitle} title={title}/>
             {/* <div style={{ marginTop: 50, textAlign: 'center' }}>
                 <button onClick={onSaveEdits} style={{ backgroundColor: '#4d564d', border: 'solid 1px #657065d9', borderColor: '#657065d9', textAlign: 'center', fontSize: 12, marginTop: 6, display: 'inline-block', marginRight: 10, borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Save</button>
             </div> */}
