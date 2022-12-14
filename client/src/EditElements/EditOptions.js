@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import EditTheme from './EditTheme';
-// import EditSettings from './EditSettings';
+import EditSettings from './EditSettings';
 
 function EditOptions({ list }) {
 
     const [primColor, setPrimColor] = useState(list.theme.prim_color);
     const [secColor, setSecColor] = useState(list.theme.sec_color);
     const [bulletIcon, setBulletIcon] = useState(list.theme.bullet_icon);
+    const [bookmarks, setBookmarks] = useState(list.bookmarks)
     const [title, setTitle] = useState(list.title);
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
@@ -41,7 +42,7 @@ function EditOptions({ list }) {
         <div style={{ color: '#4d564d', fontSize: 13 }}>
             <EditTheme list={list}/>
             <br></br>
-            {/* <EditSettings list={list} setTitle={setTitle} title={title} setName={setName} name={name} setLink={setLink} link={link}/> */}
+            <EditSettings list={list} setTitle={setTitle} title={title} setName={setName} name={name} setLink={setLink} link={link} bookmarks={bookmarks} setBookmarks={setBookmarks}/>
             <div style={{ marginTop: 50, textAlign: 'center' }}>
                 <button onClick={onSaveEdits} style={{ backgroundColor: '#4d564d', border: 'solid 1px #657065d9', borderColor: '#657065d9', textAlign: 'center', fontSize: 12, marginTop: 6, display: 'inline-block', marginRight: 10, borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Save</button>
             </div>

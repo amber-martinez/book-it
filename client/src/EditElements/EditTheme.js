@@ -27,7 +27,7 @@ function EditTheme({ list }) {
                     <p>Bullet icon</p>
                 </Col>
                 <Col>
-                    <input type='text' value={list.theme.bullet_icon} style={{ width: 160, border: 'none', borderBottom: '.8px solid #4f564e', fontSize: 13 }}></input>
+                    <input type='text' value={list.theme.bullet_icon} style={{ width: 150, border: 'none', borderBottom: '.8px solid #4f564e', fontSize: 13, textAlign: 'left', color: '#4f564e' }}></input>
                 </Col>
             </Row>
         </div>

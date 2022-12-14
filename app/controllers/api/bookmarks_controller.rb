@@ -30,7 +30,7 @@ class Api::BookmarksController < ApplicationController
     private
 
     def bookmark_params
-        params.permit(:name, :link, :resolved, :user_id, :list_id)
+        params.permit(:name, :link, :list_id)
     end
 
 end
