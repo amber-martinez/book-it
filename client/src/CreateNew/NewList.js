@@ -15,11 +15,11 @@ function NewList() {
             <div>
                 <h3 style={{ fontSize: 18, marginBottom: 62 }}>New list</h3>
             </div>
-            <Row>
-                <Col style={{ marginRight: -350 }}>
+            <Row className="justify-content-md-center">
+                <Col style={{ marginRight: 30 }} xs lg="2">
                     <NewListTheme primColor={primColor} setPrimColor={setPrimColor} secColor={secColor} setSecColor={setSecColor} bulletIcon={bulletIcon} setBulletIcon={setBulletIcon} />
                 </Col>
-                <Col style={{ marginLeft: -350 }}>
+                <Col style={{ marginLeft: 30 }} xs lg="2">
                     <NewListView primColor={primColor} secColor={secColor} bulletIcon={bulletIcon}/>
                 </Col>
             </Row>
