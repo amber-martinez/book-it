@@ -5,20 +5,19 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   before_action :authorize
 
+  private
+  
   def authorize 
     @user = User.find(session[:user_id])
-    render json: { error: 'Wrong credentials.' }, status: :unauthorized unless @user
+    render json: { error: 'You\'re not logged in.' }, status: :unauthorized unless @user
   end
-
-
-  private
 
   def render_unprocessable_entity_response(invalid)
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 
-  def render_not_found_response
-    render json: { errors: 'Not found!' }, status: :not_found
+  def render_not_found_response(e)
+    render json: { errors: e }, status: :not_found
   end
 
 end

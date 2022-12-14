@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :themes
     resources :lists
     resources :bookmarks
+
     get '/account', to: 'users#show'
+
     post '/signin', to: 'sessions#create'
     delete '/signout', to: 'sessions#destroy'
   end

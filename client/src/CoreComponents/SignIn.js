@@ -25,6 +25,7 @@ function SignIn({ user, setUser }) {
         .then(r => {
             if (r.ok) {
                 r.json().then(data => setUser(data))
+                window.location.href='/lists'
             } else {
                 r.json().then(e => setErrors(e.errors))
             }

@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:create, :index]
 
     def index
         users = User.all
@@ -17,12 +17,14 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user.update!(user_params)
-        render json: @user
+        user = User.find(params[:id])
+        user.update!(user_update_params)
+        render json: user
     end
 
     def destroy
-        @user.destroy
+        user = User.find(params[:id])
+        user.destroy
         session.delete :user_id
         head :no_content
     end
@@ -30,7 +32,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:name, :username, :password, :password_confirmation)
+        params.permit(:username, :password, :password_confirmation, :name)
     end
 
 end

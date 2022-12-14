@@ -37,7 +37,8 @@ function SignUp({ user, setUser }) {
         })
     }
 
-    console.log(name, username, password, passwordConfirmation)
+    console.log(`username: ${username}`)
+    console.log(`password: ${password}`)
 
     return (
         <div style={{ marginTop: 65, textAlign: 'center' }}>
