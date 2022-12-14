@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import EditTheme from './EditTheme';
+import EditTheme from './EditTheme';
 // import EditSettings from './EditSettings';
 
 function EditOptions({ list }) {
@@ -35,11 +35,11 @@ function EditOptions({ list }) {
         })
     }
 
-    console.log(title)
+    // console.log(list)
 
     return (
         <div style={{ color: '#4d564d', fontSize: 13 }}>
-            {/* <EditTheme list={list}/> */}
+            <EditTheme list={list}/>
             <br></br>
             {/* <EditSettings list={list} setTitle={setTitle} title={title} setName={setName} name={name} setLink={setLink} link={link}/> */}
             <div style={{ marginTop: 50, textAlign: 'center' }}>
