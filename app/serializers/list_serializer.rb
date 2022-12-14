@@ -1,3 +1,5 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id, :title, :user_id, :theme_id
+  attributes :id, :title, :theme
+
+  belongs_to :theme
 end

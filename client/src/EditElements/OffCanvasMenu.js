@@ -35,7 +35,7 @@ function OffCanvasMenu({ list, name, ...props }) {
   );
 }
 
-function Example({ list  }) {
+function Example({ list }) {
   return (
     <>
       {options.map((props, idx) => (
