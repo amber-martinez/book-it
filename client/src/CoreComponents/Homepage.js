@@ -6,9 +6,22 @@ function Homepage() {
 
     const account = useSelector(state => state.account)
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting){
+                entry.target.classList.add('show')
+            } else {
+                entry.target.classList.remove('show')
+            }
+        });
+    })
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el))
+
     return (
-        <div style={{ textAlign: 'center' }}>
-            <img src='https://i.imgur.com/Bdz005N.png' alt='all your bookmarks, one place' style={{ height: 500, marginTop: 62 }}></img>
+        <div style={{ textAlign: 'center' }} className='hidden'>
+            <img src='https://i.imgur.com/Bdz005N.png' alt='all your bookmarks, one place' style={{ height: 505, marginTop: 84 }}></img>
             <br></br>
             {account ? 
             <button style={{ backgroundColor: '#7e857d', fontSize: 13, border: 'none', padding: '3px 11px 3px 11px', marginTop: 18, borderRadius: 4 }}><Link to='/lists' style={{ color: 'white', textDecoration: 'none' }}>Make new list</Link></button>

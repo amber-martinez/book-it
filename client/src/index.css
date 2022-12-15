@@ -30,8 +30,13 @@
   transform: translateY(0%);
 }
 
-#footer{
-  position:fixed;
-  bottom:0;
-  left:0;
- }
+.hidden#list {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateX(10%);
+}
+
+.show#list {
+  opacity: 1;
+  transform: translateX(0%);
+}

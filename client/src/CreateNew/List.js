@@ -4,8 +4,21 @@ import Example from '../EditElements/OffCanvasMenu';
 
 function List({ list }) {
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting){
+                entry.target.classList.add('show')
+            } else {
+                entry.target.classList.remove('show')
+            }
+        });
+    })
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el))
+
     return (
-        <div style={{ display: 'inline-block', marginRight: 30 }}>
+        <div style={{ display: 'inline-block', marginRight: 30 }} className='hidden' id='list'>
             <Card style={{ width: '18rem', margin: 'auto', textAlign: 'left', marginTop: 20, backgroundColor: list.theme.prim_color, color: list.theme.sec_color, border: 'none' }}>
                 <div style={{ position: 'relative' }}>
                     <Example list={list} />

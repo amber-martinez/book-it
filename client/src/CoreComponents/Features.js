@@ -1,8 +1,12 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 function Features() {
+    
+    const account = useSelector(state => state.account)
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -74,6 +78,13 @@ function Features() {
                     <p style={{ fontSize: 13 }}>Customize your lists and edit bookmarks at any time.</p>
                     <p style={{ fontSize: 13 }}>All your bookmarks–one place.</p>
                 </Col>
+                <div style={{ marginTop: 200 }}>
+                    {account ? 
+                        <button style={{ backgroundColor: '#7e857d', fontSize: 13, border: 'none', padding: '3px 11px 3px 11px', marginTop: 18, borderRadius: 4 }}><Link to='/lists' style={{ color: 'white', textDecoration: 'none' }}>Make new list</Link></button>
+                    :
+                        <button style={{ backgroundColor: '#7e857d', fontSize: 13, border: 'none', padding: '3px 11px 3px 11px', marginTop: 18, borderRadius: 4 }}><Link to='/signup' style={{ color: 'white', textDecoration: 'none' }}>Get started</Link></button>
+                    }
+                </div>
             </Row>
         </div>
     )
