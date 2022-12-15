@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector, useDispatch } from "react-redux";
 import { displayUser } from './userSlice'
 
-function NavBar({ setUser }) {
+function NavBar() {
 
   const account = useSelector(state => state.account);
   const dispatch = useDispatch();
