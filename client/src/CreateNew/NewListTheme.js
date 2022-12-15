@@ -24,8 +24,11 @@ function NewListTheme({ primColor, setPrimColor, secColor, setSecColor, bulletIc
         })
         .then(r => {
             if (r.ok) {
-                setSuccessMessage(true);
-                setErrors([]);
+                r.json().then(data => {
+                    setThemeID(data.id)
+                    setSuccessMessage(true);
+                    setErrors([]);
+                })
             } else {
                 r.json().then(e => setErrors(e.errors));
             }

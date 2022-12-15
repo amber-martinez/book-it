@@ -3,8 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector, useDispatch } from "react-redux";
+import { displayUser } from './userSlice'
 
-function NavBar({ user, setUser }) {
+function NavBar({ setUser }) {
+
+  const account = useSelector(state => state.account);
+  const dispatch = useDispatch();
+
+  console.log(account)
 
   function onLogoutClick(e) {
     e.preventDefault();
@@ -12,13 +19,10 @@ function NavBar({ user, setUser }) {
     fetch('/api/signout', {
       method: 'DELETE'
     })
-    .then(r => {
-      if (r.ok) {
-        setUser(null)
+    .then(() => {
+        dispatch(displayUser(null))
         window.location.href = '/home'
-      }
     })
-
   }
 
     return (
@@ -36,7 +40,7 @@ function NavBar({ user, setUser }) {
                 <NavDropdown.Item href="/lists">Lists</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.1">Themes</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {user ? 
+                {account ? 
                 <NavDropdown.Item onClick={onLogoutClick}>Sign out</NavDropdown.Item>
                 :
                 <NavDropdown.Item href="signin">Sign in</NavDropdown.Item>

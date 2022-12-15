@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function EditTheme({ list, setPrimColor, primColor, setSecColor, secColor, setBulletIcon, bulletIcon, setThemeID }) {
+function EditTheme({ list, setPrimColor, primColor, setSecColor, secColor, setBulletIcon, bulletIcon, setTheme }) {
 
     const [errors, setErrors] = useState([]);
     const [successMessage, setSuccessMessage] = useState(false);
@@ -26,7 +26,7 @@ function EditTheme({ list, setPrimColor, primColor, setSecColor, secColor, setBu
                 r.json().then(data => {
                     setErrors([]);
                     setSuccessMessage(true);
-                    setThemeID(data.id)
+                    setTheme(data)
                 })
             } else {
                 r.json().then(e => setErrors(e.errors))

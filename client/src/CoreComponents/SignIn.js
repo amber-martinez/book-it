@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { displayUser } from './userSlice';
 
 function SignIn({ user, setUser }) {
+
+    const dispatch = useDispatch();
+    const account = useSelector(state => state.account);
+
+    console.log(account)
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -24,7 +31,7 @@ function SignIn({ user, setUser }) {
         })
         .then(r => {
             if (r.ok) {
-                r.json().then(data => setUser(data))
+                r.json().then(data => dispatch(displayUser(data)))
                 window.location.href='/lists'
             } else {
                 r.json().then(e => setErrors(e.errors))
