@@ -8,6 +8,7 @@ import SignUp from './CoreComponents/SignUp';
 import Homepage from './CoreComponents/Homepage';
 import NewList from './CreateNew/NewList';
 import Features from './CoreComponents/Features';
+import NewTheme from './CreateNew/NewTheme';
 
 function App() {
 
@@ -33,10 +34,11 @@ function App() {
         <Routes>
           <Route exact path='/home' element={<Homepage user={user}/>}></Route>
           <Route exact path='/lists' element={<Lists user={user} />}></Route>
-          <Route exact path='/signin' element={<SignIn user={user} setUser={setUser}/>}></Route>
-          <Route exact path='/signup' element={<SignUp user={user} setUser={setUser}/>}></Route>
+          <Route exact path='/signin' element={<SignIn/>}></Route>
+          <Route exact path='/signup' element={<SignUp/>}></Route>
           <Route exact path='/new-list' element={<NewList user={user}/>}></Route>
           <Route exact path='/features' element={<Features/>}></Route>
+          <Route exact path='/new-theme' element={<NewTheme/>}></Route>
         </Routes>
       </Router>
     </div>
