@@ -6,7 +6,7 @@ const themeSlice = createSlice({
         newPrimColor: '#ecebe5',
         newSecColor: '#5b583d',
         newBulletIcon: '◇',
-        themeID: null
+        themeID: 2
     },
     reducers: {
         changePrimColor: (state, action) => {

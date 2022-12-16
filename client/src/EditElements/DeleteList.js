@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useDispatch } from  'react-redux';
+import { displayUser } from '../CoreComponents/userSlice'
 
 function DeleteList({ list }) {
 
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [errors, setErrors] = useState(false);
     const [successMessage, setSuccessMessage] = useState(false);
+    const dispatch = useDispatch();
 
     function onConfirmDelete(e) {
         e.preventDefault();
@@ -18,6 +21,9 @@ function DeleteList({ list }) {
             if (r.ok) {
                 setSuccessMessage(true);
                 setErrors([]);
+                fetch('/api/account')
+                .then(r => r.json())
+                .then(data => dispatch(displayUser(data)))
             } else {
                 r.json().then(setErrors(e.errors))
             }

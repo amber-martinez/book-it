@@ -4,17 +4,16 @@ import Col from 'react-bootstrap/Col';
 import NewListTheme from './NewListTheme';
 import NewListView from './NewListView';
 import NewListTitle from './NewListTitle';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { displayUser } from '../CoreComponents/userSlice'
 
 function NewList({ user }) {
 
     const [title, setTitle] = useState('Title');
     const [successMessage, setSuccessMessage] = useState(false);
     const [errors, setErrors] = useState([]);
-    // const primColor = useSelector(state => state.theme.newPrimColor);
-    // const secColor = useSelector(state => state.theme.newSecColor);
-    // const bulletIcon = useSelector(state => state.theme.newBulletIcon);
     const themeID = useSelector(state => state.theme.themeID);
+    const dispatch = useDispatch();
 
     console.log(themeID)
 
@@ -36,6 +35,9 @@ function NewList({ user }) {
             if (r.ok) {
                 setSuccessMessage(true);
                 setErrors([]);
+                fetch('/api/account')
+                .then(r => r.json())
+                .then(data => dispatch(displayUser(data)))
             } else {
                 r.json().then(e => setErrors(e.errors))
             }
