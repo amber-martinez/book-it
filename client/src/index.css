@@ -1,6 +1,16 @@
 .App {
   font-family: 'Source Sans Pro', sans-serif;
   color: #4f564e;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+#light {
+  background-color: 'white';
+}
+
+#dark {
+  background-color: #323232;
 }
 
 #inlineLink {

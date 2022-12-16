@@ -13,6 +13,7 @@ import NewTheme from './CreateNew/NewTheme';
 function App() {
 
   const [user, setUser] = useState(null);
+  const [toggleView, setToggleView] = useState('light');
 
   useEffect(() => {
 
@@ -28,12 +29,12 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className='App' id={toggleView}>
       <NavBar user={user} setUser={setUser}/>
       <Router>
         <Routes>
           <Route exact path='/home' element={<Homepage user={user}/>}></Route>
-          <Route exact path='/lists' element={<Lists user={user} />}></Route>
+          <Route exact path='/lists' element={<Lists user={user} setToggleView={setToggleView} toggleView={toggleView}/>}></Route>
           <Route exact path='/signin' element={<SignIn/>}></Route>
           <Route exact path='/signup' element={<SignUp/>}></Route>
           <Route exact path='/new-list' element={<NewList user={user}/>}></Route>
