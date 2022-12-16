@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useDispatch } from 'react-redux';
+import { displayUser } from '../CoreComponents/userSlice';
 
 function EditTitle({ list, title, setTitle }) {
     
     const [titleChange, setTitleChange] = useState(false);
     const [successMessage, setSuccessMessage] = useState(false);
-    const [errors, setErrors] = useState(false)
+    const [errors, setErrors] = useState(false);
+    const dispatch = useDispatch();
 
     function onTitleSave(e) {
         e.preventDefault();
@@ -24,6 +27,9 @@ function EditTitle({ list, title, setTitle }) {
             if (r.ok) {
                 setSuccessMessage(true)
                 setErrors([])
+                fetch('/api/account')
+                .then(r => r.json())
+                .then(data => dispatch(displayUser(data)))
             } else {
                 r.json().then(e => setErrors(e.errors))
             }
