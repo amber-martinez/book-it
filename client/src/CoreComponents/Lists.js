@@ -5,7 +5,7 @@ import List from '../CreateNew/List';
 
 function Lists() {
 
-    const account = useSelector(state => state.account);
+    const account = useSelector(state => state.user.account);
 
     return (
         <div style={{ marginLeft: 215, marginTop: 45, textAlign: 'left' }}>

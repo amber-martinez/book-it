@@ -1,7 +1,12 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { useSelector } from 'react-redux'
 
-function NewListView({ primColor, secColor, bulletIcon, title }) {
+function NewListView({ title }) {
+
+    const primColor = useSelector(state => state.theme.newPrimColor);
+    const secColor = useSelector(state => state.theme.newSecColor);
+    const bulletIcon = useSelector(state => state.theme.newBulletIcon);
 
     return (
         <div>

@@ -4,16 +4,22 @@ import Col from 'react-bootstrap/Col';
 import NewListTheme from './NewListTheme';
 import NewListView from './NewListView';
 import NewThemeScratch from './NewThemeScratch';
+import { useSelector } from "react-redux";
 
 
 function NewTheme() {
 
-    const [primColor, setPrimColor] = useState('#ecebe5');
-    const [secColor, setSecColor] = useState('#5b583d');
-    const [bulletIcon, setBulletIcon] = useState('◇');
+    // const [primColor, setPrimColor] = useState('#ecebe5');
+    // const [secColor, setSecColor] = useState('#5b583d');
+    // const [bulletIcon, setBulletIcon] = useState('◇');
     const [successMessage, setSuccessMessage] = useState(false);
     const [errors, setErrors] = useState([]);
-    const [themeID, setThemeID] = useState(null);
+    // const [themeID, setThemeID] = useState(null);
+
+    const primColor = useSelector(state => state.newPrimColor);
+    const secColor = useSelector(state => state.newSecColor);
+    const bulletIcon = useSelector(state => state.newBulletIcon);
+    const themeID = useSelector(state => state.themeID);
 
     function onThemeSave(e) {
         e.preventDefault();
@@ -49,7 +55,7 @@ function NewTheme() {
         </div>
             <Row className="justify-content-md-center">
                 <Col style={{ marginRight: 30 }} xs lg="2">
-                    <NewThemeScratch primColor={primColor} setPrimColor={setPrimColor} secColor={secColor} setSecColor={setSecColor} bulletIcon={bulletIcon} setBulletIcon={setBulletIcon} setThemeID={setThemeID}/>
+                    <NewThemeScratch/>
                 </Col>
                 <Col style={{ marginLeft: 30 }} xs lg="2">
                     <h3 style={{ fontSize: 18 }}>Preview</h3>
@@ -59,8 +65,10 @@ function NewTheme() {
             <Row>
                 <div style={{ marginTop: 30 }}>
                     <button onClick={onThemeSave} style={{ backgroundColor: '#4f564e', border: 'solid 1px #4f564e', borderColor: '#4f564e', textAlign: 'center', fontSize: 12, marginTop: 50, display: 'inline-block', borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px', marginBottom: 15 }}>Save theme</button>
-                    {errors ? errors.map(e => <p style={{ marginBottom: 3 }}>{e}</p>) : null}
-                    {successMessage ? <p style={{ fontSize: 12 }}>Theme saved.</p> : null }
+                    <div style={{ marginTop: 30 }}>
+                        {errors ? errors.map(e => <p style={{ marginBottom: 3 }}>{e}</p>) : null}
+                        {successMessage ? <p style={{ fontSize: 12 }}>Theme saved.</p> : null }
+                    </div>
                 </div>
             </Row>
     </div>

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
+import { useDispatch } from 'react-redux';
+import { changePrimColor, changeSecColor, changeBulletIcon, changeThemeID } from './themeSlice';
 
-function ThemeBrowse({ setThemeID }) {
+function ThemeBrowse() {
 
-    const [themes, setThemes] = useState([])
+    const dispatch = useDispatch();
+    const [themes, setThemes] = useState([]);
 
     useEffect(() => {
         fetch('/api/themes')
@@ -27,7 +30,12 @@ function ThemeBrowse({ setThemeID }) {
                     </Card.Body>
                 </Card>
                 <div style={{ textAlign: 'left' }}>
-                    <button onClick={((e) => setThemeID(e.target.value))} value={theme.id} style={{ backgroundColor: 'transparent', border: 'none', textAlign: 'center', fontSize: 12, marginTop: 1, display: 'inline-block', borderRadius: 3, color: '#4f564e', padding: '2px 10px 3px 10px' }}>Select</button>
+                    <button onClick={(() => {
+                        dispatch(changePrimColor(theme.prim_color));
+                        dispatch(changeSecColor(theme.sec_color));
+                        dispatch(changeBulletIcon(theme.bullet_icon));
+                        dispatch(changeThemeID(theme.id));
+                    })} value={theme} style={{ backgroundColor: 'transparent', border: 'none', textAlign: 'center', fontSize: 12, marginTop: 1, display: 'inline-block', borderRadius: 3, color: '#4f564e', padding: '2px 10px 3px 10px' }}>Select</button>
                 </div>
             </div>
         ))}

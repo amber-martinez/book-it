@@ -8,7 +8,7 @@ import { displayUser } from './userSlice'
 
 function NavBar() {
 
-  const account = useSelector(state => state.account);
+  const account = useSelector(state => state.user.account);
   const dispatch = useDispatch();
 
   console.log(account)

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 function Features() {
     
-    const account = useSelector(state => state.account)
+    const account = useSelector(state => state.user.account);
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
