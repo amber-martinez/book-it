@@ -39,7 +39,6 @@ function App() {
           <Route exact path='/signup' element={<SignUp/>}></Route>
           <Route exact path='/new-list' element={<NewList user={user}/>}></Route>
           <Route exact path='/features' element={<Features/>}></Route>
-          <Route exact path='/new-theme' element={<NewTheme/>}></Route>
         </Routes>
       </Router>
     </div>
