@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useDispatch } from  'react-redux';
+import { displayUser } from '../CoreComponents/userSlice'
 
 function DeleteBookmark({ setBookmarks, bookmarks }) {
 
@@ -8,11 +10,11 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
     const [successMessage, setSuccessMessage] = useState(false);
     const [selectDeleteBM, setSelectDeleteBM] = useState();
     const [showDeleteBM, setShowDeleteBM] = useState(false)
+    const dispatch = useDispatch();
 
-    function onDeleteBMSubmit(e) {
-        console.log(selectDeleteBM)
-        e.preventDefault()
-        fetch(`/api/bookmarks/${selectDeleteBM}`, {
+    function onDeleteBMSubmit() {
+       const bmID = parseInt(selectDeleteBM);
+        fetch(`/api/bookmarks/${bmID}`, {
             method: 'DELETE'
         })
         .then(r => {
@@ -20,11 +22,14 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
                 setSuccessMessage(true);
                 setErrors([]);
                 setSelectDeleteBM(bookmarks[0].id);
-            } else {
-                r.json().then(e => setErrors(e.errors))
+                fetch('/api/account')
+                .then(r => r.json())
+                .then(data => dispatch(displayUser(data)))
             }
         })
     }
+    
+    console.log(selectDeleteBM)
 
     return (
         <div>

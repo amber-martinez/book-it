@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useDispatch } from 'react-redux';
+import { displayUser } from '../CoreComponents/userSlice';
 
 function AddBookmark({ setName, name, setLink, link, list, setBookmarks, bookmarks }) {
 
     const [showAddBM, setShowAddBM] = useState(false);
     const [errors, setErrors] = useState([]);
     const [successMessage, setSuccessMessage] = useState(false);
+    const dispatch = useDispatch();
 
     function onAddBMSubmit(e) {
         e.preventDefault();
@@ -30,6 +33,9 @@ function AddBookmark({ setName, name, setLink, link, list, setBookmarks, bookmar
                     setSuccessMessage(true)
                     setName('');
                     setLink('');
+                    fetch('/api/account')
+                    .then(r => r.json())
+                    .then(data => dispatch(displayUser(data)))
                 })
             } else {
                 r.json().then(e => setErrors(e.errors))
