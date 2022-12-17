@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import EditTheme from './EditTheme';
 import EditSettings from './EditSettings';
 import Bookmarks from './Bookmarks';
+import { useSelector } from 'react-redux';
 
 function EditOptions({ list }) {
 
@@ -13,9 +14,10 @@ function EditOptions({ list }) {
     const [title, setTitle] = useState(list.title);
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
+    const viewMode = useSelector(state => state.view.viewMode);
 
     return (
-        <div style={{ color: '#4d564d', fontSize: 13 }}>
+        <div className={viewMode} id='text' style={{ fontSize: 13 }}>
             <EditTheme list={list} setPrimColor={setPrimColor} primColor={primColor} setSecColor={setSecColor} secColor={secColor} setBulletIcon={setBulletIcon} bulletIcon={bulletIcon} setTheme={setTheme}/>
             <br></br>
             <Bookmarks list={list} setName={setName} name={name} setLink={setLink} link={link} bookmarks={bookmarks} setBookmarks={setBookmarks}/>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { displayUser } from '../CoreComponents/userSlice';
 
 function EditTitle({ list, title, setTitle }) {
@@ -9,6 +9,7 @@ function EditTitle({ list, title, setTitle }) {
     const [titleChange, setTitleChange] = useState(false);
     const [successMessage, setSuccessMessage] = useState(false);
     const [errors, setErrors] = useState(false);
+    const viewMode = useSelector(state => state.view.viewMode);
     const dispatch = useDispatch();
 
     function onTitleSave(e) {
@@ -42,10 +43,10 @@ function EditTitle({ list, title, setTitle }) {
                 <p>Title</p>
             </Col>
             <Col>
-                <input type='text' value={title} onChange={((e) => {
+                <input className={viewMode} id='input' type='text' value={title} onChange={((e) => {
                     setTitle(e.target.value)
                     setTitleChange(true)
-                })} style={{ width: 150, border: 'none', borderBottom: '.8px solid #4f564e', fontSize: 13, textAlign: 'left', color: '#4f564e' }}></input>
+                })} style={{ width: 150, fontSize: 13, textAlign: 'left', backgroundColor: 'transparent' }}></input>
             </Col>
             <Row>
             <Col></Col>

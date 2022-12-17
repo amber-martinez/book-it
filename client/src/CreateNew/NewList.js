@@ -7,13 +7,14 @@ import NewListTitle from './NewListTitle';
 import { useSelector, useDispatch } from 'react-redux';
 import { displayUser } from '../CoreComponents/userSlice'
 
-function NewList({ user }) {
+function NewList() {
 
     const [title, setTitle] = useState('Title');
     const [successMessage, setSuccessMessage] = useState(false);
     const [errors, setErrors] = useState([]);
     const themeID = useSelector(state => state.theme.themeID);
     const dispatch = useDispatch();
+    const account = useSelector(state => state.user.account);
 
     console.log(themeID)
 
@@ -28,7 +29,7 @@ function NewList({ user }) {
             body: JSON.stringify({
                 title,
                 theme_id: themeID,
-                user_id: user.id
+                user_id: account.id
             }),
         })
         .then(r => {

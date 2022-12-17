@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useDispatch } from  'react-redux';
+import { useDispatch, useSelector } from  'react-redux';
 import { displayUser } from '../CoreComponents/userSlice'
 
 function DeleteBookmark({ setBookmarks, bookmarks }) {
@@ -10,6 +10,7 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
     const [successMessage, setSuccessMessage] = useState(false);
     const [selectDeleteBM, setSelectDeleteBM] = useState();
     const [showDeleteBM, setShowDeleteBM] = useState(false)
+    const viewMode = useSelector(state => state.view.viewMode);
     const dispatch = useDispatch();
 
     function onDeleteBMSubmit() {
@@ -28,14 +29,12 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
             }
         })
     }
-    
-    console.log(selectDeleteBM)
 
     return (
         <div>
             <Row style={{ marginBottom: 5  }}>
                 <Col>
-                    <button onClick={(() => setShowDeleteBM(!showDeleteBM))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0, color: '#4f564e' }}>Delete bookmark</button>
+                    <button className={viewMode} id='text' onClick={(() => setShowDeleteBM(!showDeleteBM))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0 }}>Delete bookmark</button>
                 </Col>
                 { showDeleteBM ?
                 <Col>

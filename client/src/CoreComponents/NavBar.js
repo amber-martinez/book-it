@@ -5,13 +5,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector, useDispatch } from "react-redux";
 import { displayUser } from './userSlice'
+import { toggleViewMode, setEmoji } from './viewSlice';
 
 function NavBar() {
 
   const account = useSelector(state => state.user.account);
+  const viewMode = useSelector(state => state.view.viewMode);
+  const emoji = useSelector(state => state.view.emoji);
   const dispatch = useDispatch();
-
-  console.log(account)
 
   function onLogoutClick(e) {
     e.preventDefault();
@@ -26,19 +27,26 @@ function NavBar() {
   }
 
     return (
-    <Navbar collapseOnSelect expand="lg" id='navbar' style={{ backgroundColor: '#eef0f2', color: '#4f564e' }}>
+    <Navbar collapseOnSelect expand="lg" className={viewMode} id='navbar'>
       <Container style={{ fontSize: 13 }}>
-        <Navbar.Brand href="/home" style={{ color: '#4d564d' }}><img src='https://i.imgur.com/w2LgVJW.png' id='navbarImg' alt='bookmark' style={{ height: 22, marginRight: 6, marginTop: -2 }}></img>Book It</Navbar.Brand>
+        <Navbar.Brand href="/home" className={viewMode} id='brand'><img src='https://i.imgur.com/w2LgVJW.png' id='navbarImg' alt='bookmark' style={{ height: 22, marginRight: 6, marginTop: -2 }}></img>Book It</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="/features" className={viewMode} id='navlink'>Features</Nav.Link>
+            <Nav.Link href="#pricing" className={viewMode} id='navlink'>Pricing</Nav.Link>
           </Nav>
           <Nav>
             <NavDropdown id="collasible-nav-dropdown" title={<img src='https://i.imgur.com/4R2ztKT.png' style={{ height: 22 }} alt='profile icon'></img>}>
                 <NavDropdown.Item href="/lists">Lists</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Themes</NavDropdown.Item>
+                <button onClick={(() => {
+                  dispatch(setEmoji())
+                  if (emoji == false) {
+                    dispatch(toggleViewMode('dark'))
+                  } else {
+                      dispatch(toggleViewMode('light'))
+                  }
+                })} style={{ backgroundColor: 'transparent', border: 'none', marginLeft: 11 }}>{emoji ? '☁️' : '☀️'}</button>
                 <NavDropdown.Divider />
                 {account ? 
                 <NavDropdown.Item onClick={onLogoutClick}>Sign out</NavDropdown.Item>

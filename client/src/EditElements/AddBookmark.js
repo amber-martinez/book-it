@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { displayUser } from '../CoreComponents/userSlice';
 
 function AddBookmark({ setName, name, setLink, link, list, setBookmarks, bookmarks }) {
@@ -9,6 +9,7 @@ function AddBookmark({ setName, name, setLink, link, list, setBookmarks, bookmar
     const [showAddBM, setShowAddBM] = useState(false);
     const [errors, setErrors] = useState([]);
     const [successMessage, setSuccessMessage] = useState(false);
+    const viewMode = useSelector(state => state.view.viewMode)
     const dispatch = useDispatch();
 
     function onAddBMSubmit(e) {
@@ -48,12 +49,12 @@ function AddBookmark({ setName, name, setLink, link, list, setBookmarks, bookmar
             <h3 style={{ fontSize: 17, marginBottom: 18, marginTop: 10 }}>Bookmarks</h3> 
             <Row style={{ marginBottom: 5 }}>
                 <Col>
-                    <button onClick={(() => setShowAddBM(!showAddBM))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0, color: '#4f564e' }}>Add bookmark</button>
+                    <button className={viewMode} id='text' onClick={(() => setShowAddBM(!showAddBM))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0 }}>Add bookmark</button>
                 </Col>
                 { showAddBM ?
                 <Col>
-                    <input type='text' value={name} placeholder='Name' onChange={((e) => setName(e.target.value))} style={{ width: 150, border: 'none', borderBottom: '.8px solid #4f564e', fontSize: 13, textAlign: 'left', color: '#4f564e', marginBottom: 15 }}></input>
-                    <input type='text' value={link} placeholder='Link' onChange={((e) => setLink(e.target.value))} style={{ width: 150, border: 'none', borderBottom: '.8px solid #4f564e', fontSize: 13, textAlign: 'left', color: '#4f564e', marginBottom: 15 }}></input>
+                    <input className={viewMode} id='input' type='text' value={name} placeholder='Name' onChange={((e) => setName(e.target.value))} style={{ width: 150, fontSize: 13, textAlign: 'left', marginBottom: 15, backgroundColor: 'transparent' }}></input>
+                    <input className={viewMode} id='input' type='text' value={link} placeholder='Link' onChange={((e) => setLink(e.target.value))} style={{ width: 150, fontSize: 13, textAlign: 'left', marginBottom: 15, backgroundColor: 'transparent' }}></input>
                     <div style={{ textAlign: 'left' }}>
                         <button onClick={onAddBMSubmit} style={{ backgroundColor: '#7e857d', border: 'solid 1px #7e857d', borderColor: '#657065d9', textAlign: 'center', fontSize: 12, marginTop: 6, display: 'inline-block', marginRight: 10, borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Add</button>
                     </div>

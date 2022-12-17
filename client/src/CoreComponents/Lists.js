@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleViewMode, setEmoji } from './viewSlice';
 import List from '../CreateNew/List';
 
-function Lists({ setToggleView, toggleView }) {
+function Lists() {
 
     const account = useSelector(state => state.user.account);
-    const [emoji, setEmoji] = useState(false)
-
-    console.log(toggleView, emoji)
+    const viewMode = useSelector(state => state.view.viewMode);
+    const emoji = useSelector(state => state.view.emoji);
+    const dispatch = useDispatch();
 
     return (
         <div style={{ marginLeft: 215, marginTop: 45, textAlign: 'left' }}>
             {account ?
             <div>
                 <h3 style={{ fontSize: 20, marginBottom: 8 }}>Lists</h3>
-                <button  style={{ backgroundColor: '#4f564e', border: 'none', padding: '3px 11px 3px 11px', color: 'white', fontSize: 11, borderRadius: 4, marginRight: 10 }}><Link to='/new-list' style={{ color: 'white', textDecoration: 'none' }}>+ New list</Link></button>
+                <button className={viewMode} id='button'><Link to='/new-list' style={{ textDecoration: 'none', color: 'white' }}>+ New list</Link></button>
                 <button onClick={(() => {
-                    setEmoji(!emoji)
+                    dispatch(setEmoji())
                     if (emoji == false) {
-                        setToggleView('light')
+                        dispatch(toggleViewMode('dark'))
                     } else {
-                        setToggleView('dark')
+                        dispatch(toggleViewMode('light'))
                     }
                 })} style={{ backgroundColor: 'transparent', border: 'none', padding: '3px 11px 3px 11px', marginRight: 10 }}>{emoji ? '☁️' : '☀️'}</button>
                 <div style={{ marginTop: 20 }}>

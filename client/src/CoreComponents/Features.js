@@ -22,7 +22,7 @@ function Features() {
     hiddenElements.forEach((el) => observer.observe(el))
 
     return (
-        <div style={{ textAlign: 'center', marginTop: 150 }}>
+        <div style={{ textAlign: 'center', marginTop: 150, paddingBottom: 370 }}>
             <div>
                 <h3 style={{ fontSize: 20, marginBottom: 70 }}>Actually find your bookmarks</h3>
             </div>
@@ -68,7 +68,7 @@ function Features() {
                     <img src='https://i.imgur.com/GaXfsYx.png' style={{ scale: '15%' }}></img>
                 </div>
             </Row>
-            <Row className="justify-content-md-center" style={{ marginTop: 70, marginBottom: 370 }}>
+            <Row className="justify-content-md-center" style={{ marginTop: 70 }}>
                 <Col style={{ marginRight: 30 }} xs lg="3" className='hidden' id='featuresTwo'>
                     <img src='https://i.imgur.com/ZYvoOkw.gif' alt='customize theme' style={{ height: 300 }}></img>
                 </Col>
@@ -78,7 +78,7 @@ function Features() {
                     <p style={{ fontSize: 13 }}>Customize your lists and edit bookmarks at any time.</p>
                     <p style={{ fontSize: 13 }}>All your bookmarks–one place.</p>
                 </Col>
-                <div style={{ marginTop: 200 }}>
+                <div style={{ marginTop: 160 }}>
                     {account ? 
                         <button style={{ backgroundColor: '#7e857d', fontSize: 13, border: 'none', padding: '3px 11px 3px 11px', marginTop: 18, borderRadius: 4 }}><Link to='/lists' style={{ color: 'white', textDecoration: 'none' }}>Make new list</Link></button>
                     :

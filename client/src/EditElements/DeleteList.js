@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useDispatch } from  'react-redux';
+import { useDispatch, useSelector } from  'react-redux';
 import { displayUser } from '../CoreComponents/userSlice'
 
 function DeleteList({ list }) {
@@ -9,6 +9,7 @@ function DeleteList({ list }) {
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [errors, setErrors] = useState(false);
     const [successMessage, setSuccessMessage] = useState(false);
+    const viewMode = useSelector(state => state.view.viewMode);
     const dispatch = useDispatch();
 
     function onConfirmDelete(e) {
@@ -33,7 +34,7 @@ function DeleteList({ list }) {
     return (
         <Row style={{ marginBottom: 5 }}>
             <Col>
-                <button onClick={(() => setConfirmDelete(true))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0, color: '#4f564e' }}>Delete List</button>
+                <button className={viewMode} id='button' onClick={(() => setConfirmDelete(true))} style={{ backgroundColor: 'transparent', border: 'none', marginBottom: 16, paddingLeft: 0, fontSize: 13 }}>Delete List</button>
             </Col>
             {confirmDelete ?
             <Col>
