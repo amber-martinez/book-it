@@ -46,6 +46,10 @@
 .light #selectThemeBtn {
   color: #4f564e;
 }
+.light .dropdown-menu {
+  --bs-dropdown-link-active-bg: #e9ecef !important;
+}
+
 
 
 /*   dark   */
@@ -97,6 +101,10 @@
 }
 .dark #dropdownItem {
   color: #c2c1c1;
+}
+.dark .dropdown-menu {
+  --bs-dropdown-link-active-bg: #3c3c3c !important;
+  --bs-dropdown-link-hover-bg: #575757 !important;
 }
 .dark #selectThemeBtn {
   color: #c2c1c1;
