@@ -40,6 +40,12 @@
   border-bottom: .8px solid #4f564e;
   color: #4f564e;
 }
+.light #dropdownItem {
+  color: #4f564e;
+}
+.light #selectThemeBtn {
+  color: #4f564e;
+}
 
 
 /*   dark   */
@@ -88,6 +94,12 @@
 }
 .dark #divider {
   background-color: #dedede80;
+}
+.dark #dropdownItem {
+  color: #c2c1c1;
+}
+.dark #selectThemeBtn {
+  color: #c2c1c1;
 }
 
 

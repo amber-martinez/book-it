@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { displayUser } from '../CoreComponents/userSlice';
 
 function EditTheme({ list, setPrimColor, primColor, setSecColor, secColor, setBulletIcon, bulletIcon, setTheme }) {
 
     const [errors, setErrors] = useState([]);
     const [successMessage, setSuccessMessage] = useState(false);
+    const dispatch = useDispatch();
     const viewMode = useSelector(state => state.view.viewMode);
 
     function onEditThemeSave(e) {
@@ -29,6 +31,9 @@ function EditTheme({ list, setPrimColor, primColor, setSecColor, secColor, setBu
                     setErrors([]);
                     setSuccessMessage(true);
                     setTheme(data)
+                    fetch('/api/account')
+                    .then(r => r.json())
+                    .then(data => dispatch(displayUser(data)))
                 })
             } else {
                 r.json().then(e => setErrors(e.errors))

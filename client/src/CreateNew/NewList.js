@@ -15,8 +15,7 @@ function NewList() {
     const themeID = useSelector(state => state.theme.themeID);
     const dispatch = useDispatch();
     const account = useSelector(state => state.user.account);
-
-    console.log(themeID)
+    const viewMode = useSelector(state => state.view.viewMode);
 
     function onListSave(e) {
         e.preventDefault();
@@ -60,8 +59,7 @@ function NewList() {
                     <NewListTitle title={title} setTitle={setTitle}/>
                     <NewListView title={title}/>
 
-                    <button onClick={onListSave} style={{ backgroundColor: '#4f564e', border: 'solid 1px #4f564e', borderColor: '#4f564e', textAlign: 'center', fontSize: 12, marginTop: 50, display: 'inline-block', borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Save list</button>
-
+                    <button className={viewMode} id='button' onClick={onListSave} style={{ marginTop: 50, display: 'inline-block', color: 'white' }}>Save list</button>
                     <div style={{ marginTop: 30 }}>
                     {errors ? errors.map(e => <p style={{ marginBottom: 3 }}>{e}</p>) : null}
                     {successMessage ? <p>List saved.</p> : null }

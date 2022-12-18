@@ -5,13 +5,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { displayUser } from './userSlice';
 
-function SignIn({ user, setUser }) {
+function SignIn() {
 
     const dispatch = useDispatch();
     const account = useSelector(state => state.account);
-
-    console.log(account)
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
@@ -41,7 +38,7 @@ function SignIn({ user, setUser }) {
 
     return (
         <div style={{ marginTop: 65, textAlign: 'center' }}>
-            {user ?
+            {account ?
             <p>You're already logged in.</p>
             :
             <div>

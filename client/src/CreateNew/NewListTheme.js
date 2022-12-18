@@ -11,11 +11,11 @@ function NewListTheme() {
     const primColor = useSelector(state => state.theme.newPrimColor);
     const secColor = useSelector(state => state.theme.newSecColor);
     const bulletIcon = useSelector(state => state.theme.newBulletIcon);
+    const viewMode = useSelector(state => state.view.viewMode)
     
     const dispatch = useDispatch();
 
-    function onThemeSave(e) {
-        e.preventDefault();
+    function onThemeSave() {
 
         fetch(`/api/themes`, {
             method: 'POST',
@@ -49,7 +49,7 @@ function NewListTheme() {
             </div>
                 <NewThemeScratch/>
             <div style={{ marginTop: 8 }}>
-                <button onClick={onThemeSave} style={{ backgroundColor: '#4f564e', border: 'solid 1px #4f564e', borderColor: '#4f564e', textAlign: 'center', fontSize: 12, marginTop: 15, display: 'inline-block', borderRadius: 3, color: 'white', padding: '2px 10px 3px 10px' }}>Save theme</button>
+                <button className={viewMode} id='button' onClick={onThemeSave} style={{ color: 'white' }}>Save theme</button>
                 <div style={{ marginTop: 20, fontSize: 12 }}>
                     {errors ? errors.map(e => <p style={{ marginBottom: 3 }}>{e}</p>) : null}
                     {successMessage ? <p>Theme saved.</p> : null }

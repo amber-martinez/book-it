@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changePrimColor, changeSecColor, changeBulletIcon, changeThemeID } from './themeSlice';
 
 function ThemeBrowse() {
 
     const dispatch = useDispatch();
+    const viewMode = useSelector(state => state.view.viewMode);
     const [themes, setThemes] = useState([]);
 
     useEffect(() => {
@@ -35,7 +36,7 @@ function ThemeBrowse() {
                         dispatch(changeSecColor(theme.sec_color));
                         dispatch(changeBulletIcon(theme.bullet_icon));
                         dispatch(changeThemeID(theme.id));
-                    })} value={theme} style={{ backgroundColor: 'transparent', border: 'none', textAlign: 'center', fontSize: 12, marginTop: 1, display: 'inline-block', borderRadius: 3, color: '#4f564e', padding: '2px 10px 3px 10px' }}>Select</button>
+                    })} className={viewMode} id='selectThemeBtn' value={theme} style={{ backgroundColor: 'transparent', border: 'none', textAlign: 'center', fontSize: 12, marginTop: 1, display: 'inline-block', borderRadius: 3, padding: '2px 10px 3px 10px' }}>Select</button>
                 </div>
             </div>
         ))}

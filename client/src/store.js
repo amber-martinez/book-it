@@ -25,7 +25,5 @@ const store = configureStore({
     middleware: [thunk]
 })
 
-console.log(store.getState())
-
 export default store;
 export const persistor = persistStore(store)

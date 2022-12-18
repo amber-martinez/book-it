@@ -39,7 +39,7 @@ function NavBar() {
           </Nav>
           <Nav>
             <NavDropdown title={<img src={icon ? 'https://i.imgur.com/4R2ztKT.png' : 'https://i.imgur.com/zfUMzuD.png'} style={{ height: 22 }} alt='profile icon'></img>}>
-                <NavDropdown.Item href="/lists" className={viewMode} id='navlink'>Lists</NavDropdown.Item>
+                <NavDropdown.Item href="/lists" className={viewMode} id='dropdownItem'>Lists</NavDropdown.Item>
                 <button onClick={(() => {
                   dispatch(setEmoji())
                   if (emoji == false) {
@@ -52,9 +52,9 @@ function NavBar() {
                 })} style={{ backgroundColor: 'transparent', border: 'none', marginLeft: 11 }}>{emoji ? '☁️' : '☀️'}</button>
                 <NavDropdown.Divider className={viewMode} id='divider'/>
                 {account ? 
-                <NavDropdown.Item onClick={onLogoutClick} className={viewMode} id='navlink'>Sign out</NavDropdown.Item>
+                <NavDropdown.Item onClick={onLogoutClick} className={viewMode} id='dropdownItem'>Sign out</NavDropdown.Item>
                 :
-                <NavDropdown.Item href="signin" className={viewMode} id='navlink'>Sign in</NavDropdown.Item>
+                <NavDropdown.Item href="signin" className={viewMode} id='dropdownItem'>Sign in</NavDropdown.Item>
                 }
             </NavDropdown>
           </Nav>
