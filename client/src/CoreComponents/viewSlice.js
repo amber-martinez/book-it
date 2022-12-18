@@ -4,7 +4,8 @@ const viewSlice = createSlice({
     name: 'view',
     initialState: {
         viewMode: 'light',
-        emoji: false
+        emoji: false,
+        icon: false
     },
     reducers: {
         toggleViewMode: (state, action) => {
@@ -12,11 +13,14 @@ const viewSlice = createSlice({
         },
         setEmoji: (state) => {
             state.emoji = !state.emoji
+        },
+        setIcon: (state) => {
+            state.icon = !state.icon
         }
     }
 })
 
-const { toggleViewMode, setEmoji } = viewSlice.actions;
+const { toggleViewMode, setEmoji, setIcon } = viewSlice.actions;
 
-export { toggleViewMode, setEmoji };
+export { toggleViewMode, setEmoji, setIcon };
 export default viewSlice.reducer

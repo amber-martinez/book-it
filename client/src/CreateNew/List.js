@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Example from '../EditElements/OffCanvasMenu';
 
 function List({ list }) {
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting){
-                entry.target.classList.add('show')
-            } else {
-                entry.target.classList.remove('show')
-            }
-        });
-    })
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting){
+                    entry.target.classList.add('show')
+                } else {
+                    entry.target.classList.remove('show')
+                }
+            });
+        })
 
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el))
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el))
+    }, [])
 
     return (
         <div style={{ display: 'inline-block', marginRight: 30 }} className='hidden' id='list'>

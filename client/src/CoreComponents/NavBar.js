@@ -5,13 +5,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector, useDispatch } from "react-redux";
 import { displayUser } from './userSlice'
-import { toggleViewMode, setEmoji } from './viewSlice';
+import { toggleViewMode, setEmoji, setIcon } from './viewSlice';
 
 function NavBar() {
 
   const account = useSelector(state => state.user.account);
   const viewMode = useSelector(state => state.view.viewMode);
   const emoji = useSelector(state => state.view.emoji);
+  const icon = useSelector(state => state.view.icon);
   const dispatch = useDispatch();
 
   function onLogoutClick(e) {
@@ -37,21 +38,23 @@ function NavBar() {
             <Nav.Link href="#pricing" className={viewMode} id='navlink'>Pricing</Nav.Link>
           </Nav>
           <Nav>
-            <NavDropdown id="collasible-nav-dropdown" title={<img src='https://i.imgur.com/4R2ztKT.png' style={{ height: 22 }} alt='profile icon'></img>}>
-                <NavDropdown.Item href="/lists">Lists</NavDropdown.Item>
+            <NavDropdown title={<img src={icon ? 'https://i.imgur.com/4R2ztKT.png' : 'https://i.imgur.com/zfUMzuD.png'} style={{ height: 22 }} alt='profile icon'></img>}>
+                <NavDropdown.Item href="/lists" className={viewMode} id='navlink'>Lists</NavDropdown.Item>
                 <button onClick={(() => {
                   dispatch(setEmoji())
                   if (emoji == false) {
-                    dispatch(toggleViewMode('dark'))
+                    dispatch(toggleViewMode('dark'));
+                    dispatch(setIcon());
                   } else {
-                      dispatch(toggleViewMode('light'))
+                    dispatch(toggleViewMode('light'));
+                    dispatch(setIcon());
                   }
                 })} style={{ backgroundColor: 'transparent', border: 'none', marginLeft: 11 }}>{emoji ? '☁️' : '☀️'}</button>
-                <NavDropdown.Divider />
+                <NavDropdown.Divider className={viewMode} id='divider'/>
                 {account ? 
-                <NavDropdown.Item onClick={onLogoutClick}>Sign out</NavDropdown.Item>
+                <NavDropdown.Item onClick={onLogoutClick} className={viewMode} id='navlink'>Sign out</NavDropdown.Item>
                 :
-                <NavDropdown.Item href="signin">Sign in</NavDropdown.Item>
+                <NavDropdown.Item href="signin" className={viewMode} id='navlink'>Sign in</NavDropdown.Item>
                 }
             </NavDropdown>
           </Nav>

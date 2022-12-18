@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleViewMode, setEmoji } from './viewSlice';
+import { toggleViewMode, setEmoji, setIcon } from './viewSlice';
 import List from '../CreateNew/List';
 
 function Lists() {
@@ -21,8 +21,10 @@ function Lists() {
                     dispatch(setEmoji())
                     if (emoji == false) {
                         dispatch(toggleViewMode('dark'))
+                        dispatch(setIcon());
                     } else {
                         dispatch(toggleViewMode('light'))
+                        dispatch(setIcon());
                     }
                 })} style={{ backgroundColor: 'transparent', border: 'none', padding: '3px 11px 3px 11px', marginRight: 10 }}>{emoji ? '☁️' : '☀️'}</button>
                 <div style={{ marginTop: 20 }}>

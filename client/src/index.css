@@ -82,8 +82,17 @@
 .dark::placeholder {
   color: #c2c1c1;
 }
+.dark .dropdown-menu {
+  background-color: #3c3c3c !important;
+  color: #c2c1c1;
+}
+.dark #divider {
+  background-color: #dedede80;
+}
+
+
+
 button.btn-close {
-  color: red;
   background-color: #c2c1c18a;
 }
 
