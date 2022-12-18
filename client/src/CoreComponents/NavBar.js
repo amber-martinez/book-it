@@ -35,7 +35,7 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/features" className={viewMode} id='navlink'>Features</Nav.Link>
-            <Nav.Link href="#pricing" className={viewMode} id='navlink'>Pricing</Nav.Link>
+            <Nav.Link href="https://github.com/amber-martinez/book-it" className={viewMode} id='navlink' target="_blank" rel="noopener noreferrer">Github</Nav.Link>
           </Nav>
           <Nav>
             <NavDropdown title={<img src={icon ? 'https://i.imgur.com/4R2ztKT.png' : 'https://i.imgur.com/zfUMzuD.png'} style={{ height: 22 }} alt='profile icon'></img>}>
