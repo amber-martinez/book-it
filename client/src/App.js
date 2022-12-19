@@ -22,6 +22,8 @@ function App() {
     .then(r => {
       if (r.ok) {
         r.json().then(data => dispatch(displayUser(data)))
+      } else {
+        dispatch(displayUser({}))
       }
     })
 
