@@ -25,7 +25,7 @@ function Homepage() {
 
     return (
         <div style={{ textAlign: 'center' }} className='hidden'>
-            {account ? 
+            {account.length > 0 ? 
             <div>
                 <Link to='/lists' style={{ textDecoration: 'none' }}><img src={icon ? 'https://i.imgur.com/ingObRo.png' : 'https://i.imgur.com/Bdz005N.png' } alt='all your bookmarks, one place' style={{ height: 505, marginTop: 84 }}></img></Link>
                 <br></br>
