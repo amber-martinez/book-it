@@ -7,8 +7,6 @@ function Homepage() {
     const icon = useSelector(state => state.view.icon);
     const account = useSelector(state => state.user.account);
 
-    console.log(account)
-
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -25,7 +23,7 @@ function Homepage() {
 
     return (
         <div style={{ textAlign: 'center' }} className='hidden'>
-            {account.length > 0 ? 
+            {account ? 
             <div>
                 <Link to='/lists' style={{ textDecoration: 'none' }}><img src={icon ? 'https://i.imgur.com/ingObRo.png' : 'https://i.imgur.com/Bdz005N.png' } alt='all your bookmarks, one place' style={{ height: 505, marginTop: 84 }}></img></Link>
                 <br></br>

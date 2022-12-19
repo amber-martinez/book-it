@@ -13,7 +13,7 @@ function Lists() {
 
     return (
         <div style={{ marginLeft: 215, marginTop: 45, textAlign: 'left' }}>
-            {account.length > 0 ?
+            {account ?
             <div>
                 <h3 style={{ fontSize: 20, marginBottom: 8 }}>Lists</h3>
                 <button className={viewMode} id='button'><Link to='/new-list' style={{ textDecoration: 'none', color: 'white' }}>+ New list</Link></button>
