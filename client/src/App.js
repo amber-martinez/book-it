@@ -22,8 +22,6 @@ function App() {
     .then(r => {
       if (r.ok) {
         r.json().then(data => dispatch(displayUser(data)))
-      } else {
-        r.json().then(displayUser(null))
       }
     })
 
