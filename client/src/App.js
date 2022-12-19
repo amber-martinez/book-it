@@ -23,7 +23,7 @@ function App() {
       if (r.ok) {
         r.json().then(data => dispatch(displayUser(data)))
       } else {
-        dispatch(displayUser({}))
+        dispatch(displayUser(null))
       }
     })
 
