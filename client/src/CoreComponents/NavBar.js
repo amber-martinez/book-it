@@ -27,8 +27,6 @@ function NavBar() {
     })
   }
 
-  console.log(icon)
-
     return (
     <Navbar collapseOnSelect expand="lg" className={viewMode} id='navbar'>
       <Container style={{ fontSize: 13 }}>

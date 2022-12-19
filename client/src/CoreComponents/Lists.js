@@ -34,7 +34,7 @@ function Lists() {
                 </div>
             </div>
 
-            : <p>Sign in <Link to='/signup' id='inlineLink'>here.</Link></p>
+            : <p>Sign in <Link to='/signin' id='inlineLink'>here.</Link></p>
             }
         </div>
     )
