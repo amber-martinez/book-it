@@ -7,6 +7,8 @@ function Homepage() {
     const icon = useSelector(state => state.view.icon);
     const account = useSelector(state => state.user.account);
 
+    console.log(account)
+
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
