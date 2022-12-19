@@ -48,6 +48,7 @@
 }
 .light .dropdown-menu {
   --bs-dropdown-link-active-bg: #e9ecef !important;
+  background-color: white;
 }
 
 
@@ -101,10 +102,12 @@
 }
 .dark #dropdownItem {
   color: #c2c1c1;
+  background-color: #3c3c3c;
 }
 .dark .dropdown-menu {
   --bs-dropdown-link-active-bg: #3c3c3c !important;
   --bs-dropdown-link-hover-bg: #575757 !important;
+  background-color: #3c3c3c;
 }
 .dark #selectThemeBtn {
   color: #c2c1c1;

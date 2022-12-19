@@ -27,6 +27,8 @@ function NavBar() {
     })
   }
 
+  console.log(icon)
+
     return (
     <Navbar collapseOnSelect expand="lg" className={viewMode} id='navbar'>
       <Container style={{ fontSize: 13 }}>
@@ -38,7 +40,7 @@ function NavBar() {
             <Nav.Link href="https://github.com/amber-martinez/book-it" className={viewMode} id='navlink' target="_blank" rel="noopener noreferrer">Github</Nav.Link>
           </Nav>
           <Nav>
-            <NavDropdown title={<img src={icon ? 'https://i.imgur.com/4R2ztKT.png' : 'https://i.imgur.com/zfUMzuD.png'} style={{ height: 22 }} alt='profile icon'></img>}>
+            <NavDropdown title={<img src={icon ? 'https://i.imgur.com/4R2ztKT.png' : 'https://i.imgur.com/4R2ztKT.png'} style={{ height: 22 }} alt='profile icon'></img>}>
                 <NavDropdown.Item href="/lists" className={viewMode} id='dropdownItem'>Lists</NavDropdown.Item>
                 <button onClick={(() => {
                   dispatch(setEmoji())

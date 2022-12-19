@@ -30,7 +30,7 @@ function Lists() {
                 <div style={{ marginTop: 20 }}>
                     { account.lists.length > 0 ?
                     account.lists.map(list => <List list={list}/>)
-                    : 'false' }
+                    : <p>You don't have any lists yet.</p> }
                 </div>
             </div>
 

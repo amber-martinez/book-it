@@ -30,6 +30,7 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
         })
     }
 
+
     return (
         <div>
             <Row style={{ marginBottom: 5  }}>
@@ -39,8 +40,9 @@ function DeleteBookmark({ setBookmarks, bookmarks }) {
                 { showDeleteBM ?
                 <Col>
                     <select onChange={((e) => setSelectDeleteBM(e.target.value))} style={{ width: 150 }}>
+                        <option selected="true" disabled="disabled">Select bookmark</option>
                         {bookmarks.map(bm => (
-                            <option value={bm.id} >{bm.name}</option>
+                            <option value={bm.id}>{bm.name}</option>
                         ))}
                     </select>
                     <div style={{ textAlign: 'left', marginTop: 10 }}>

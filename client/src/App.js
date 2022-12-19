@@ -34,6 +34,7 @@ function App() {
       <NavBar/>
       <Router>
         <Routes>
+          <Route exact path='/' element={<Homepage/>}></Route>
           <Route exact path='/home' element={<Homepage/>}></Route>
           <Route exact path='/lists' element={<Lists/>}></Route>
           <Route exact path='/signin' element={<SignIn/>}></Route>
