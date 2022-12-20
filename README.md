@@ -10,6 +10,7 @@ https://book-it.onrender.com/home
 * Password authentication
 * Conditionally rendered content based on authentication
 * Visually customized lists through themes
+* Light and dark mode
 
 ## Playthrough ##
 ![Screen_Recording_2022-12-19_at_9_37_08_PM_AdobeExpress](https://user-images.githubusercontent.com/88984297/208569401-8cbc5225-cc47-42ce-aabd-9abb92fe538e.gif)
